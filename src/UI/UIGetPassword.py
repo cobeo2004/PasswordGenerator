@@ -58,7 +58,13 @@ class UIGetPassword(tkinter.Tk):
         if self.userName_entry.index("end") == "":
             messagebox.showwarning("Please fill in the indicated field")
         else:
-            self.__list = getFromDatabase(self.userName_entry.get(), self.firstName_entry.get(),self.email_entry.get(), self.website_entry.get(), self.application_entry.get())
+            self.__list = getFromDatabase(
+                self.userName_entry.get(), 
+                self.firstName_entry.get(),
+                self.email_entry.get(), 
+                self.website_entry.get(), 
+                self.application_entry.get()
+            )
             print(self.__list)
             _SHOW = _UIShow(self.__list)
             _SHOW.mainloop()
