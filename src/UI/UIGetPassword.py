@@ -7,7 +7,7 @@ class UIGetPassword(tkinter.Tk):
     def __init__(self) -> None:
         super().__init__()
         self.title("Database Getter")
-        self.geometry("1010x768")
+        self.geometry("420x768")
         self.iconbitmap("./src/img/key.ico")
 
         self.userName_label = ttk.LabelFrame(self, text="Your User Name(*):")
