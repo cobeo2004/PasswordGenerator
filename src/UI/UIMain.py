@@ -1,3 +1,4 @@
+#import all neccessary modules
 import tkinter
 from tkinter import BooleanVar, ttk
 import tkinter.messagebox
@@ -6,7 +7,7 @@ from src.UI.UISetPassword import UISetPassword
 from src.UI.UIGetPassword import UIGetPassword
 from src.UI._fun import save_to_txt, delete_everything_from_path
 
-
+#UIMain Class, the main class of the UI, where contains all of the UI components and also a password generator as well
 class UIMain(tkinter.Tk):
     def __init__(self) -> None:
 
@@ -68,8 +69,7 @@ class UIMain(tkinter.Tk):
         self.text_box = ttk.Label(self, text="Created by Simon Nguyen @2022", state="readonly")
         self.text_box.pack(padx=10,pady=10)
 
-
-
+    #Call the password generator and set the password to the entry
     def _password_generator(self):
         if not(self.isLowerCase.get() or self.isUpperCase.get() or self.isSymbol.get() or self.isNumber.get()):
             tkinter.messagebox.showwarning("Warning", "Please select at least one option")
@@ -86,6 +86,7 @@ class UIMain(tkinter.Tk):
                 self.password_entry.insert(0,self.password)
                 save_to_txt(self.password)
 
+    #Copy the password to the clipboard
     def _copy_password(self) -> None:
         if self.password_entry.get() == "":
             tkinter.messagebox.showwarning("Warning", "Please generate a password first")
@@ -94,9 +95,8 @@ class UIMain(tkinter.Tk):
             self.clipboard_append(self.password_entry.get())
             tkinter.messagebox.showinfo("Password Copied", "Password copied to clipboard")
 
-
+    #Save the password to the database 
     def _save_to_db(self) -> None:
-        # tkinter.messagebox.showinfo("Not Implemented", "This feature is not implemented yet")
         _response = tkinter.messagebox.askyesno("Save to Database", "Do you want to save this password to the database?")
         if _response:
             if self.password_entry.get() == "":
@@ -107,6 +107,7 @@ class UIMain(tkinter.Tk):
         else:
             tkinter.messagebox.showinfo("Not Saved", "Password not saved to database")
     
+    #Get the password from the database
     def _get_from_db(self) -> None:
         # tkinter.messagebox.showinfo("Not Implemented", "This feature is not implemented yet")
         _response = tkinter.messagebox.askyesno("Get from Database", "Do you want to get your password from the database?")

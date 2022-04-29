@@ -1,5 +1,4 @@
-#!usr/bin/python
-
+#Modules
 import sqlite3
 import tkinter
 from tkinter import ttk, messagebox
@@ -7,7 +6,7 @@ from src.Database.DBFunc import addDataToDatabase
 from src.UI._fun import delete_everything_from_path, read_from_path
 #MARK: __userName: str, __savedPassword: str, __firstName: str = "", __lastName: str = "", __email: str, __website: str = "", __application: str = ""
 
-
+#UISetPassword class, the UI for setting the password
 class UISetPassword(tkinter.Tk):
     def __init__(self) -> None:
         super().__init__()
@@ -64,7 +63,7 @@ class UISetPassword(tkinter.Tk):
         self.text_box = ttk.Label(self, text="Created by Simon Nguyen @2022", state="readonly")
         self.text_box.pack(padx=5,pady=5)
 
-
+    #Submit to the database
     def _submit(self):
         conf = messagebox.askyesno("Confirmation", "Do you really wanted to save the data ?")
         if conf:
@@ -84,9 +83,8 @@ class UISetPassword(tkinter.Tk):
                     messagebox.showwarning("Warning", "Think twice before doing something :D")
         else:
             messagebox.showinfo("Denied", "All right then !")
-            
-
-
+        
+    #Exit
     def _exit(self):
         delete_everything_from_path()
         messagebox.showinfo("Exit", "Thanks for using my service ! - Simon Nguyen")

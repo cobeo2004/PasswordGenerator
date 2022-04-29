@@ -1,3 +1,5 @@
+#Side functions to help the UI
+
 import os
 __path = "./src/Saves/"
 __file_name = "temp.txt"

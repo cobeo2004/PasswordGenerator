@@ -1,8 +1,9 @@
-
+#Modules
 from tkinter import ttk, messagebox
 import tkinter
 from src.Database.DBFunc import getFromDatabase
 
+#UIGetPassword class, the UI for getting the password
 class UIGetPassword(tkinter.Tk):
     def __init__(self) -> None:
         super().__init__()
@@ -52,6 +53,7 @@ class UIGetPassword(tkinter.Tk):
         self.text_box = ttk.Label(self, text="Created by Simon Nguyen @2022", state="readonly")
         self.text_box.pack(padx=10,pady=10)
 
+    #Get data from the database and put it to the _UIShow class
     def _submit(self):
         if self.userName_entry.index("end") == "":
             messagebox.showwarning("Please fill in the indicated field")
@@ -61,11 +63,13 @@ class UIGetPassword(tkinter.Tk):
             _SHOW = _UIShow(self.__list)
             _SHOW.mainloop()
 
+    #Exit 
     def _exit(self):
         messagebox.showinfo("Exit", "Thanks for using my service ! - Simon Nguyen")
         self.destroy()
 
 
+#UIShow class, the UI for showing the data
 class _UIShow(tkinter.Tk):
     def __init__(self, __list:list) -> None:
         super().__init__()
@@ -129,15 +133,15 @@ class _UIShow(tkinter.Tk):
 
         self.text_box = ttk.Label(self, text="Created by Simon Nguyen @2022", state="readonly")
         self.text_box.pack(padx=10,pady=10)
-    
+
+    #Copy to the clipboard 
     def _copy(self):
         self.clipboard_clear()
         self.clipboard_append(self.dt[3])
         messagebox.showinfo("Password Copied", "Password copied to clipboard")
 
-
+    #Exit
     def _exit(self):
-
         messagebox.showinfo("Exit", "Thanks for using my service ! - Simon Nguyen")
         self.destroy()
 

@@ -1,6 +1,9 @@
+#Module
 import sqlite3
 import sys
 from _const import connections
+
+#Side file to reinitialize the database
 try:
     cursor = connections.cursor()
 

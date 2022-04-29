@@ -1,6 +1,7 @@
+#Module
 import random
 
-
+#The class that helps to generate random password based on conditions
 class RandomPassword:
     '''
     @author: Simon Nguyen 
