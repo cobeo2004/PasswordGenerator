@@ -73,7 +73,14 @@ class UISetPassword(tkinter.Tk):
                 conf = messagebox.askokcancel("Confirmation", "Are you sure that you wanted to submit? (Remember to fill all of the required field or (*) field because it is very important for data saving purpose and also try to fill the information that is close to you in order to get your infos from database easier!) ")
                 if conf:
                     try:
-                        addDataToDatabase(self.userName_entry.get(), self.password, self.email_entry.get(), self.firstName_entry.get(), self.website_entry.get(), self.application_entry.get(), self.lastName_entry.get())
+                        addDataToDatabase(
+                            self.userName_entry.get(), 
+                            self.password, self.email_entry.get(), 
+                            self.firstName_entry.get(), 
+                            self.website_entry.get(), 
+                            self.application_entry.get(), 
+                            self.lastName_entry.get()
+                        )
                         # print(f"{self.userName_entry.get()} {self.password} {self.email_entry.get()} {self.firstName_entry.get()} {self.website_entry.get()} {self.application_entry.get()} {self.lastName_entry.get()}")
                         messagebox.showinfo("Successful", "Successfully fetch the data")
                     except sqlite3.Error as e:
